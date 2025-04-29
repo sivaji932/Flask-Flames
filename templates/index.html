@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FLAMES Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body class="min-h-screen flex items-center justify-center bg-white">
+    <!-- Updated Container: removed extra flex layout -->
+    <div class="w-full max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+        <!-- Left Form Side occupying full width -->
+        <div class="w-full p-10 bg-white">
+            <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600 text-center mb-6"
+                style="font-family: 'Lobster Neue', sans-serif;">
+                FLAMES
+            </h1>
+
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Hello, friend!</h2>
+            <form method="POST" class="space-y-5">
+                <div>
+                    <input type="text" name="name1" placeholder="Name 1" required
+                           class="w-full px-5 py-3 rounded-full shadow-md border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
+                </div>
+                <div>
+                    <input type="text" name="name2" placeholder="Name 2" required
+                           class="w-full px-5 py-3 rounded-full shadow-md border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
+                </div>
+
+                <div>
+                    <button type="submit"
+                            class="w-full bg-gradient-to-r from-orange-400 via-pink-500 to-pink-600 text-white py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform">
+                            Check Relationship 💞
+                    </button>
+                </div>
+                {% if error %}
+                <div class="text-red-500 font-semibold mt-2">{{ error }}</div>
+                {% endif %}
+                {% if relationship %}
+                <div class="text-center text-pink-600 font-semibold text-xl mt-4">
+                    <span class="font-bold">{{ relationship }}</span>
+                </div>
+                {% endif %}
+            </form>
+            <div class="mt-8 text-center text-sm text-gray-600">
+                <p class="text-pink-600 font-semibold">Just for fun...</p>
+            </div>
+        </div>
+
+    <!-- Developed By Paragraph -->
+    <div class="absolute bottom-16 left-0 right-0 text-center">
+        <p class="text-sm text-gray-600">developed by - SIVAJI</p>
+    </div>
+
+    </div>
+    <!-- Bottom Buttons with Hover Tooltips -->
+    <div class="absolute bottom-5 left-0 right-0 flex justify-center gap-6 text-sm z-10">
+        <!-- ABOUT -->
+        <div class="relative has-tooltip">
+            <button class="bg-pink-500 text-white px-4 py-2 rounded-full shadow hover:bg-pink-600 transition">About</button>
+            <div class="tooltip absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-white text-pink-600 text-xs px-3 py-2 rounded shadow-lg w-64 opacity-0 invisible transition-opacity duration-300">
+                This app is based on the classic FLAMES game logic — a nostalgic relationship fun checker.
+            </div>
+        </div>
+
+        <!-- HELP -->
+        <div class="relative has-tooltip">
+            <button class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full shadow hover:bg-yellow-500 transition">Help</button>
+            <div class="tooltip absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-white text-yellow-600 text-xs px-3 py-2 rounded shadow-lg w-64 opacity-0 invisible transition-opacity duration-300">
+                Just enter two different names and click the big fancy button to see your relationship result!
+            </div>
+        </div>
+    </div>
+
+    <!-- External JS -->
+    <script src="{{ url_for('static', filename='hover.js') }}"></script>
+</body>
+</html>
