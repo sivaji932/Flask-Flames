@@ -70,6 +70,9 @@ def flames(diff):
 def index():
     relationship = ""
     error = ""
+    name1 = ""
+    name2 = ""
+    
     if request.method == 'POST':
         name1 = request.form['name1']
         name2 = request.form['name2']
@@ -95,7 +98,7 @@ def index():
             else:
                 relationship = flames(uncommon)
 
-    return render_template('index.html', relationship=relationship, error=error)
+    return render_template('index.html', name1=name1, name2=name2, relationship=relationship, error=error)
 
 if __name__ == '__main__':
     app.run(debug=True)
