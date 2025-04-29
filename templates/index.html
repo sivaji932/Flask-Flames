@@ -22,10 +22,12 @@
             <form method="POST" class="space-y-5">
                 <div>
                     <input type="text" name="name1" placeholder="Name 1" required
+                           value="{{ name1 if name1 else '' }}"
                            class="w-full px-5 py-3 rounded-full shadow-md border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
                 </div>
                 <div>
                     <input type="text" name="name2" placeholder="Name 2" required
+                           value="{{ name2 if name2 else '' }}"
                            class="w-full px-5 py-3 rounded-full shadow-md border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition">
                 </div>
 
